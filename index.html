@@ -16,24 +16,24 @@
 <h1>The Psychic Game</h1>
 </div>
 
-<div class="container">
+<div id="game">
 	<h2>Guess what I'm thinking of</h2>
 <!-- USER INSTRUCTIONS HERE -->
     <p>Find out if you're psychic. Press any letter on your keyboard and see if you can guess what letter the computer is thinking of.</p>
 </div>
 
 
-<div class="container">
+<div id="winsTally">
 <h3>Wins:</h3>
 </div>
 
 
-<div class="container">
+<div id="lossesTally">
 <h3>Losses:</h3>
 </div>
 
 
-<div class="container">
+<div class="guessesLeft">
 <h3>Guesses Remaining:</h3>
 </div>
 
@@ -42,7 +42,7 @@
 <h3>Your guesses so far:</h3>
 </div>
 
-<script type="text/javascript">
+<script>
 
 var abc = "abcdefghijklmnopqrstuvwxyz";
 var abcArray = abc.split("");
@@ -50,27 +50,93 @@ var abcArray = abc.split("");
 // Creating variables to hold the number of wins and losses. They start at 0.
 var wins = 0;
 var losses = 0;
+var numberofrounds = 5;
+var roundsRemaining = 0;
+
+ // Function that updates the score...
+ function updateWin() {
+  	//document.querySelector("#score").innerHTML = "Score: " + score;
+  	document.getElementById("winsTally").innerHTML = "<h1>Wins: " + wins + " </h1>";
+ }
+  function updateLoss() {
+  	//document.querySelector("#score").innerHTML = "Score: " + score;
+  	document.getElementById("lossesTally").innerHTML = "<h1>Losses: " + losses + " </h1>";
+ }
+ 
+   function updateRemainingGuesses() {
+  	document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + roundsRemaining + " </h1>";
+ }
+ 
+
+// Starting the game
+updateWin();
+updateLoss();
+updateRemainingGuesses();
 
 // <!-- The user should be prompted to press any letter-->
+
 // <!-- Read the user's input -->
+// NOTE: When revisiting this try using the addEventListener method
 document.onkeyup = function(event) {
 	// Determines which key was pressed.
 	var userGuess = event.key;
 	console.log(userGuess);
 
-	
+// <!-- Validate user pressed a letter, not a number. Tell them 'That's not a letter' -->
+
+// <!-- We'll need to create a random letter from a selection of all 26 letters-->
+// var computerGuess = abcArray[Math.floor(Math.random() * abcArray.length)];
+  var computerGuess = abcArray[10];
+ console.log(computerGuess);
+
+
+
+ // <!-- If the letter the user selects is the same as what the computer chooses, alert they've won-->
+ if (userGuess === computerGuess) {
+ 	console.log(wins++);
+ 	alert("You predicted correctly!");
+ 	updateWin();
+ }
+ // <!-- If it's not the same, alert they've lost-->
+ else {
+ 	console.log(losses++);
+ 	alert("Wrong! Maybe your stars are just out of alignment?");
+ 	updateLoss();
+ }
+
+var totalgames = wins+losses;
+var roundsRemaining = numberofrounds-totalgames; 
+alert("Rounds left " + roundsRemaining);
+//document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + roundsRemaining + " </h1>";
+
+/*
+function updateguessesleft() {
+  	document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + roundsRemaining + " </h1>";
+}
+updateguessesleft();
+
+ for (var i = 0; i < remainingGuesses; i--) {
+ 	if (remainingGuesses[i] > 0) {
+ 		console.log(remainingGuesses);
+ 	}
+ 	else {
+ 		console.log("GameOver");
+ 	} 
+ }
+ */	
+
+//document.getElementById("winsTally").innerHTML = "Wins: " + wins;
+//document.getElementById("lossesTally").innerHTML = "Losses: "  + losses;
+
 
 };
 
 
-// <!-- Take the letter the user pressed ans compare it to the letter the computer generated-->
-// <!-- Validate user pressed a letter, not a number. Tell them 'That's not a letter' -->
 
-// <!-- We'll need to create a random letter from a selection of all 26 letters-->
 
 // <!-- If -->
 // <!-- Condition: User must guess correctly within 5 tries-->
-// <!-- If the letter the user selects is the same as what the computer chooses, alert they've won-->
+
 // <!-- Add 1 point to their win score-->
 // <!-- Reset game and alert a new round has started-->
 
@@ -79,6 +145,8 @@ document.onkeyup = function(event) {
 // <!-- If the letter the user selects is not the same as what the computer chooses, alert they've lost-->
 // <!-- Add 1 point to their lost score-->
 // <!-- Reset game and alert a new round has started-->
+
+// <!-- Once win or lose is == to 5. Give final win or lose and end
 
   </script>
 </body>
