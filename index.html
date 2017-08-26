@@ -16,33 +16,10 @@
 <h1>The Psychic Game</h1>
 </div>
 
-<!-- USER INSTRUCTIONS HERE -->
-
-<!-- We'll need to create a random letter from a selection of all 24 letters-->
-
-<!-- The user should be prompted to press any letter-->
-<!-- Read the user's input -->
-
-<!-- Take the letter the user pressed ans compare it to the letter the computer generated-->
-<!-- Validate user pressed a letter, not a number. Tell them 'That's not a letter' -->
-
-<!-- If -->
-<!-- Condition: User must guess correctly within 5 tries-->
-<!-- If the letter the user selects is the same as what the computer chooses, alert they've won-->
-<!-- Add 1 point to their win score-->
-<!-- Reset game and alert a new round has started-->
-
-
-<!-- Else -->
-<!-- If the letter the user selects is not the same as what the computer chooses, alert they've lost-->
-<!-- Add 1 point to their lost score-->
-<!-- Reset game and alert a new round has started-->
-
-
-
-
 <div class="container">
-<h2>Guess what I'm thinking of</h2>
+	<h2>Guess what I'm thinking of</h2>
+<!-- USER INSTRUCTIONS HERE -->
+    <p>Find out if you're psychic. Press any letter on your keyboard and see if you can guess what letter the computer is thinking of.</p>
 </div>
 
 
@@ -64,6 +41,44 @@
 <div class="container">
 <h3>Your guesses so far:</h3>
 </div>
+
+<script type="text/javascript">
+
+var abc = "abcdefghijklmnopqrstuvwxyz";
+var abcArray = abc.split("");
+
+// Creating variables to hold the number of wins and losses. They start at 0.
+var wins = 0;
+var losses = 0;
+
+// <!-- The user should be prompted to press any letter-->
+// <!-- Read the user's input -->
+document.onkeyup = function(event) {
+	// Determines which key was pressed.
+	var userGuess = event.key;
+	console.log(userGuess);
+
+	
+
+};
+
+
+// <!-- Take the letter the user pressed ans compare it to the letter the computer generated-->
+// <!-- Validate user pressed a letter, not a number. Tell them 'That's not a letter' -->
+
+// <!-- We'll need to create a random letter from a selection of all 26 letters-->
+
+// <!-- If -->
+// <!-- Condition: User must guess correctly within 5 tries-->
+// <!-- If the letter the user selects is the same as what the computer chooses, alert they've won-->
+// <!-- Add 1 point to their win score-->
+// <!-- Reset game and alert a new round has started-->
+
+
+// <!-- Else -->
+// <!-- If the letter the user selects is not the same as what the computer chooses, alert they've lost-->
+// <!-- Add 1 point to their lost score-->
+// <!-- Reset game and alert a new round has started-->
 
   </script>
 </body>
