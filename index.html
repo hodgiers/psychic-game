@@ -19,7 +19,7 @@
 <div id="game">
 	<h2>Guess what I'm thinking of</h2>
 <!-- USER INSTRUCTIONS HERE -->
-    <p>Find out if you're psychic. Press any letter on your keyboard and see if you can guess what letter the computer is thinking of.</p>
+    <h4>Find out if you're psychic. Press any letter on your keyboard and see if you can guess what letter the computer is thinking of.</h4>
 </div>
 
 
@@ -34,12 +34,12 @@
 
 
 <div class="guessesLeft">
-<h3>Guesses Remaining:</h3>
+<h1>Rounds Remaining: 5</h1>
 </div>
 
 
-<div class="container">
-<h3>Your guesses so far:</h3>
+<div id="lettersGuessed">
+<h1>Your guesses so far:</h1>
 </div>
 
 <script>
@@ -62,16 +62,16 @@ var roundsRemaining = 0;
   	//document.querySelector("#score").innerHTML = "Score: " + score;
   	document.getElementById("lossesTally").innerHTML = "<h1>Losses: " + losses + " </h1>";
  }
- 
+ /*
    function updateRemainingGuesses() {
-  	document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + roundsRemaining + " </h1>";
+  	document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + numberofrounds + " </h1>";
  }
- 
+ */
 
 // Starting the game
 updateWin();
 updateLoss();
-updateRemainingGuesses();
+//updateRemainingGuesses();
 
 // <!-- The user should be prompted to press any letter-->
 
@@ -90,48 +90,40 @@ document.onkeyup = function(event) {
  console.log(computerGuess);
 
 
-
+var totalgames = wins+losses;
+var roundsRemaining = numberofrounds-totalgames; 
  // <!-- If the letter the user selects is the same as what the computer chooses, alert they've won-->
  if (userGuess === computerGuess) {
  	console.log(wins++);
  	alert("You predicted correctly!");
  	updateWin();
+ 	console.log("How many rounds " + roundsRemaining--);
  }
  // <!-- If it's not the same, alert they've lost-->
  else {
  	console.log(losses++);
  	alert("Wrong! Maybe your stars are just out of alignment?");
  	updateLoss();
+ 	console.log("How many rounds " + roundsRemaining--);
+
  }
 
-var totalgames = wins+losses;
-var roundsRemaining = numberofrounds-totalgames; 
-alert("Rounds left " + roundsRemaining);
+
+
+//alert("Rounds left " + roundsRemaining);
+//console.log("How many rounds " + roundsRemaining--);
+//updateRemainingGuesses();
 //document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + roundsRemaining + " </h1>";
 
-/*
-function updateguessesleft() {
-  	document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + roundsRemaining + " </h1>";
-}
-updateguessesleft();
 
- for (var i = 0; i < remainingGuesses; i--) {
- 	if (remainingGuesses[i] > 0) {
- 		console.log(remainingGuesses);
- 	}
- 	else {
- 		console.log("GameOver");
- 	} 
- }
- */	
+//updateguessesleft();
 
-//document.getElementById("winsTally").innerHTML = "Wins: " + wins;
-//document.getElementById("lossesTally").innerHTML = "Losses: "  + losses;
 
 
 };
+/*
 
-
+*/
 
 
 // <!-- If -->
