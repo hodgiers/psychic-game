@@ -62,23 +62,19 @@ var roundsRemaining = 0;
   	//document.querySelector("#score").innerHTML = "Score: " + score;
   	document.getElementById("lossesTally").innerHTML = "<h1>Losses: " + losses + " </h1>";
  }
- /*
-   function updateRemainingGuesses() {
-  	document.getElementById("guessesLeft").innerHTML = "<h1>Guesses Remaining: " + numberofrounds + " </h1>";
- }
- */
+
 
 // Starting the game
 updateWin();
 updateLoss();
-//updateRemainingGuesses();
+
 
 // <!-- The user should be prompted to press any letter-->
 
 // <!-- Read the user's input -->
 // NOTE: When revisiting this try using the addEventListener method
 document.onkeyup = function(event) {
-	// Determines which key was pressed.
+// Determines which key was pressed.
 	var userGuess = event.key;
 	console.log(userGuess);
 
@@ -86,25 +82,28 @@ document.onkeyup = function(event) {
 
 // <!-- We'll need to create a random letter from a selection of all 26 letters-->
 // var computerGuess = abcArray[Math.floor(Math.random() * abcArray.length)];
-  var computerGuess = abcArray[10];
+ var computerGuess = abcArray[10];
  console.log(computerGuess);
 
 
 var totalgames = wins+losses;
 var roundsRemaining = numberofrounds-totalgames; 
  // <!-- If the letter the user selects is the same as what the computer chooses, alert they've won-->
+ // <!-- Add 1 point to their win score-->
  if (userGuess === computerGuess) {
  	console.log(wins++);
  	alert("You predicted correctly!");
  	updateWin();
- 	console.log("How many rounds " + roundsRemaining--);
+ 	console.log("How many rounds " + roundsRemaining);
  }
- // <!-- If it's not the same, alert they've lost-->
+// <!-- Else -->
+// <!-- If the letter the user selects is not the same as what the computer chooses, alert they've lost-->
+// <!-- Add 1 point to their lost score-->
  else {
  	console.log(losses++);
  	alert("Wrong! Maybe your stars are just out of alignment?");
  	updateLoss();
- 	console.log("How many rounds " + roundsRemaining--);
+ 	console.log("How many rounds " + roundsRemaining);
 
  }
 
@@ -129,13 +128,12 @@ var roundsRemaining = numberofrounds-totalgames;
 // <!-- If -->
 // <!-- Condition: User must guess correctly within 5 tries-->
 
-// <!-- Add 1 point to their win score-->
+
 // <!-- Reset game and alert a new round has started-->
 
 
-// <!-- Else -->
-// <!-- If the letter the user selects is not the same as what the computer chooses, alert they've lost-->
-// <!-- Add 1 point to their lost score-->
+
+
 // <!-- Reset game and alert a new round has started-->
 
 // <!-- Once win or lose is == to 5. Give final win or lose and end
